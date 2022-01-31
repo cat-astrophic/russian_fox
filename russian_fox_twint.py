@@ -46,6 +46,5 @@ for k in keywords:
 
 # Writing the raw data file :: UPDATE USER / FILEPATH
 
-#twitter_df.to_csv('C:/Users/Michael/Documents/Data/russian_fox/twint/raw_twitter_data.csv', index = False)
 twitter_df.to_csv('F:/russian_fox/twint/raw_twitter_data.csv', index = False)
 

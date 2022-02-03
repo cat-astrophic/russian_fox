@@ -28,19 +28,6 @@ data$x <- data$post * data$treated
 
 # Create annual treatment vars
 
-data$T15 <- as.numeric(data$date == 15) * data$treated
-data$T17 <- as.numeric(data$date == 17) * data$treated
-data$T18 <- as.numeric(data$date == 18) * data$treated
-data$T19 <- as.numeric(data$date == 19) * data$treated
-data$T20 <- as.numeric(data$date == 20) * data$treated
-data$T22 <- as.numeric(data$date == 22) * data$treated
-data$T23 <- as.numeric(data$date == 23) * data$treated
-data$T24 <- as.numeric(data$date == 24) * data$treated
-data$T25 <- as.numeric(data$date == 25) * data$treated
-data$T26 <- as.numeric(data$date == 26) * data$treated
-data$T27 <- as.numeric(data$date == 27) * data$treated
-data$T28 <- as.numeric(data$date == 28) * data$treated
-
 data$XXX <- (data$date - 21)*data$treated
 
 data$X15 <- as.numeric(data$date == 15) * data$XXX
@@ -637,4 +624,25 @@ ggplot(df4, aes()) +
 
 dev.copy(png, paste(direc, 'figures/fox_x.png', sep = ''))
 dev.off()
+
+# What about comparing relevant tweets by those who tweeted not supporting Ukraine?
+
+dataxx <- datax[which(datax$class == -1),]
+flops <- unique(dataxx$screen_name)
+data.flops <- data[which(data$screen_name %in% flops),]
+write.csv(data.flops, paste(direc, 'clean_tweets/flops.csv', sep = ''), row.names = FALSE)
+
+# Write flops to one txt file
+
+write.csv(flops, paste(direc, 'results/flops.txt', sep = ''), row.names = FALSE)
+
+#Get those who tweeted anti-Ukraine sentiments post event but sent no tweets pre event
+
+dataq <- data[which(data$class == -1),]
+antis <- unique(dataq$screen_name)
+data.antis <- data[which(data$screen_name %in% antis),]
+
+# Write this list to file as well
+
+write.csv(antis, paste(direc, 'results/antis.txt', sep = ''), row.names = FALSE)
 

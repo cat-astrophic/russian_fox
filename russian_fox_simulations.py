@@ -139,7 +139,7 @@ plt.title('Model Comparison - Updated Conditions')
 ax2.set_yticks([0, 40, 80, 120, 160, 200, 240])
 ax2.set_yticklabels([0, 40, 80, 120, 160, 200, 240])
 plt.tight_layout()
-#plt.savefig(direc + 'simulations_updated.png')
+plt.savefig(direc + 'simulations_updated.png')
 plt.show()
 
 # Evolution of the news biases

@@ -21,10 +21,7 @@ res = False
 while res == False:
     
     res = input('Manually classification of tweets:\nAnti-Russia |->  1\nIndeterminate |-> 0\nPro-Russia |-> -1\nPress any key to continue.......\n')
-    
-    if res != '':
-        
-        res = True
+    res = True
         
 for t in tweets_df.text:
     
